@@ -16,7 +16,7 @@ RUN apk add --no-cache \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
     pip3 install --upgrade pip setuptools && \
-    pip3 install -r /tmp/requirements.txt && \
+    pip3 install --no-cache-dir -r /tmp/requirements.txt && \
     rm /etc/nginx/conf.d/default.conf && \
     rm -r /root/.cache
 
@@ -30,7 +30,7 @@ COPY uwsgi.ini /etc/uwsgi/
 COPY supervisord.conf /etc/supervisord.conf
 
 # Add demo app
-COPY ./app /app
+COPY ./app/ /app
 WORKDIR /app
 
 CMD ["/usr/bin/supervisord"]

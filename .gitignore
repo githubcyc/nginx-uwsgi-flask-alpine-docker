@@ -1,2 +1,6 @@
 .rdodin
 .DS_Store
+.vscode
+*.log
+*.pid
+__pycache__

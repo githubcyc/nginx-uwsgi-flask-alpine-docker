@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  flask-web:
+      container_name: flask_app_deployment
+      image: flask/deployment
+      build: .
+      volumes:
+        - ./app:/app
+      ports:
+        - "80:80"
+      restart: always
